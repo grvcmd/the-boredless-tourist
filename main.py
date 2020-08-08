@@ -54,5 +54,5 @@ if __name__ == '__main__':
     add_attraction("São Paulo, Brazil", ["Pátio do Colégio", ["historical site"]])
     add_attraction("Cairo, Egypt", ["Pyramids of Giza", ["monument", "historical site"]])
     add_attraction("Cairo, Egypt", ["Egyptian Museum", ["museum"]])
-    
+
     print(attractions)
