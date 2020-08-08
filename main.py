@@ -1,4 +1,4 @@
-destinations = ["Paris, France", "Shanghai, China", "Los Angeles, USA", "Sao Paulo, Brazil", "Cairo, Egypt"]
+destinations = ["Paris, France", "Shanghai, China", "Los Angeles, USA", "São Paulo, Brazil", "Cairo, Egypt"]
 
 test_traveler = ['Erin Wilkes', 'Shanghai, China', ['historical site', 'art']]
 
@@ -6,11 +6,12 @@ test_traveler = ['Erin Wilkes', 'Shanghai, China', ['historical site', 'art']]
 attractions = [[] for attraction in destinations]
 
 
+
 # function to identify each location based on its index in our destinations list.
 def get_destination_index(destination):
     # variable to hold index of destination
     destination_index = destinations.index(destination)
-        # index() method returns position at the first occurrence of the specified value.
+    # index() method returns position at the first occurrence of the specified value.
 
     # returns destination_index as a string.
     return destination_index
@@ -36,6 +37,21 @@ def add_attraction(destination, attraction):
         return
 
 
+def find_attractions(destination, interests):
+    destination_index = get_destination_index(destination)
+    attractions_in_city = attractions[destination_index]
+    attractions_with_interest = []
+    for attr_in_city in attractions_in_city:
+        possible_attraction = attr_in_city
+        attraction_tags = attr_in_city[1]
+
+        for interest in interests:
+            if interest in attraction_tags:
+                attractions_with_interest.append(possible_attraction)
+
+    return attractions_with_interest
+
+
 if __name__ == '__main__':
     # print(get_destination_index("Hyperabad, India"))
 
@@ -56,3 +72,8 @@ if __name__ == '__main__':
     add_attraction("Cairo, Egypt", ["Egyptian Museum", ["museum"]])
 
     print(attractions)
+
+    # testing find_attractions
+    la_arts = find_attractions("Los Angeles, USA", ["art"])
+    print("\n")
+    print(la_arts)
